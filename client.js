@@ -1,11 +1,18 @@
-#!/usr/bin/env node
+const net = require("net");
 
-process.stdout.write("\x07");
+const connect = function() {
+  const conn = net.createConnection({
+    host: "10.0.2.15",
+    port: 50541
+  });
 
-const { Game } = require("./src/Game");
-const { UserInterface } = require("./src/UserInterface");
-const { RemoteInterface } = require("./src/RemoteInterface");
-const game = new Game(new UserInterface(), new RemoteInterface());
+  conn.setEncoding("utf8");
 
-// Begin game
-game.start();
+  conn.on("data", data => {
+    console.log(data);
+  });
+
+  return conn;
+};
+
+module.exports = { connect };
