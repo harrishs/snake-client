@@ -14,6 +14,8 @@ const connect = function() {
 
   conn.write("Name: HS1");
 
+  // conn.write("Move: up"); hard coded move
+
   conn.on("data", data => {
     console.log(data);
   });
