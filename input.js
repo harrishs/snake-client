@@ -21,6 +21,10 @@ function handleUserInput(key) {
     connection.write("Move: down");
   } else if (key === "d") {
     connection.write("Move: right");
+  } else if (key === "g") {
+    connection.write("Say: snaked");
+  } else if (key === "h") {
+    connection.write("Say: hi, bye.");
   }
 }
 
